@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+     <!-- Stylesheet -->
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    
+    <!-- Webpage title -->
+    <title>Spotter: Found Request</title>
+    
+    <!-- Header information -->
+    <header>
+        <a href="index.html" id="home">
+        <img src="logo.png" alt="Spotter logo"/></a>
+    </header>
+    
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="information.html">Information</a></li>
+
+            <li><a href="found.html">Found Request Form</a></li>
+        </ul>
+    </nav>
+    
+     <!-- Main page -->
+    <body>
+        <div id="found" class="division1">
+            <h1 id="foundHeading">Found Request Form</h1>
+            <h2>Found a missing person?</h2>
+                    <p>Fill in the form below. We will confirm whether the person has been found and update the information accordingly.</p>
+            
+            
+            <form>
+                    <!-- Name -->
+                    <label id="fnameLabel" for="fname">Your Name:</label>
+                    <input type="text" id="fname" placeholder="Enter your name" required><br><br>
+                    
+                    <!-- Phone Number -->
+                    <label id="fphoneLabel" for="fphone">Phone number:</label>
+                    <input type="number" id="fphone" placeholder="Enter your phone number" required><br><br>
+                    
+                    <!-- Email -->
+                    <label id="femailLabel" for="femail">Email:</label>
+                    <input type="text" id="femail" placeholder="(e.g. claire@hotmail.com)" required><br><br>
+                
+                    <!-- Missing Person Name -->
+                    <label id="personLabel" for="personName">Name of found person:</label>
+                    <input type="text" id="personName" placeholder="(e.g. Jane Doe)" required><br><br>
+                
+                <!-- Link to original Tweet -->
+                    <label id="tweetLabel" for="origTweet">Link to original tweet:</label>
+                    <input type="text" id="origTweet" placeholder="Link to tweet" required><br><br>
+                
+                    <!-- More information -->
+                    <label id="moreInfoLabel" for="moreInfo">More information:</label><br>
+                <textarea rows="4" cols="50" input type="text" id="moreInfo" placeholder="Enter comments or other information here" optional></textarea><br><br>
+                    
+                    <input type="submit" value="Submit" id="submitSpot">
+                </form>
+    </body>
+        
+    <footer>
+        <p>Site designed by Meeral Qureshi, Owen Sawyer, Wenting Pan and Ryan Fan for UofTHacks 2016</p>
+    </footer>
+        
+        </html>   

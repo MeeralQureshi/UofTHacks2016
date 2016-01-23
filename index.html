@@ -4,7 +4,7 @@
     <link href="styles.css" type="text/css" rel="stylesheet" />
     
     <!-- Webpage title -->
-    <title>Missing Map</title>
+    <title>Spotter: Home</title>
     
     <!-- Header information -->
     <header>
@@ -18,7 +18,7 @@
         <ul>
             <li><a href="index.html">Home</a></li>
 
-            <li><a href="instructions.html">Instructions</a></li>
+            <li><a href="information.html">Information</a></li>
 
             <li><a href="found.html">Found Request Form</a></li>
         </ul>
@@ -34,6 +34,7 @@
         
             <!-- Map -->
             <div id="map">
+                <h2>Map</h2>
 
                 <!-- API GOES HERE!!! -->
 
@@ -58,6 +59,14 @@
             
             <!-- Form -->
             <div id="signForm">
+                
+                <h2>What is a Spotter?</h2>
+                    <dl>
+                        <dt><strong>Spotter:</strong></dt>
+                        <dd>Someone who aids our cause by volunteering for live text updates for missing people in their area.</dd>
+                    </dl>
+                <p>According to Statistics Canada, 800 000 children are reported missing each year, roughly 2,000 per day. By signing up for text updates, you are helping us widen our range and search for these people faster. Someone's sibling, parent, best-friend and child can be found much faster by increasing awareness of who is missing. Simply sign up below to stay updated in your area.</p>
+                
                 <h2>Sign up</h2>
                     <p>Join our cause by signing up for live updates of missing people in your area.</p>
                 
@@ -79,9 +88,10 @@
                     <label id="cityLabel" for="city">City:</label>
                     <input type="text" id="city" placeholder="(e.g. Toronto)" required><br><br>
                     
-                    <label id="stateLabel" for="state">State:</label>
+                    <label id="stateLabel" for="state">Province:</label>
                     <input type="text" id="state" placeholder="(e.g. Ontario)" required><br><br>
                     
+                    <input type="submit" value="Submit" id="submitSpot">
                 </form>
             </div>
             
@@ -91,4 +101,7 @@
     </body>
     
 
+    <footer>
+        <p>Site designed by Meeral Qureshi, Owen Sawyer, Wenting Pan and Ryan Fan for UofTHacks 2016</p>
+    </footer>
 </html>
