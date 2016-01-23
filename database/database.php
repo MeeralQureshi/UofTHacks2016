@@ -1,4 +1,8 @@
 <?php
+
+    $conn = //PLACEHOLDER FOR WEBHOST DB CONNECTION
+
+
     // Relation 'Missing': Missing Persons
 
     $sql = "CREATE TABLE IF NOT EXISTS Missing (
