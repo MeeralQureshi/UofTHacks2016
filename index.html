@@ -28,10 +28,65 @@
     <!-- Main page -->
     <body>
         
-        <!-- Map Api -->
-        <div id="map">
+        <!-- Map div -->
+        <div id="mapContainer" class="division1">
             <h1 id="mapHeading">Missing People</h1>
+        
+            <!-- Map -->
+            <div id="map">
+
+                <!-- API GOES HERE!!! -->
+
+            </div>
+
+            <!-- Map Caption-->
+            <div id="mapCaption">
+
+                <h2>Map Information</h2>
+                <p id="mapCaptionText">All missing people and their recently sighted locations are pinned on this map.</p>
+                
+                <p id="mapCaptionText2">If you find any of these missing people, <strong>please call 911</strong>.</p>
+
+            </div>
+            
         </div>
+        
+        
+         <!-- Sign Up Div -->
+        <div id="signUp" class="division1">
+            <h1 id="signHeading">Become a Spotter</h1>
+            
+            <!-- Form -->
+            <div id="signForm">
+                <h2>Sign up</h2>
+                    <p>Join our cause by signing up for live updates of missing people in your area.</p>
+                
+                <br>
+                
+                <form>
+                    <!-- Name -->
+                    <label id="nameLabel" for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required><br><br>
+                    
+                    <!-- Phone Number -->
+                    <label id="phoneLabel" for="phone">Phone number:</label>
+                    <input type="number" id="phone" placeholder="Enter your phone number" required><br><br>
+                    
+                    <!-- Preferred Location -->
+                    <label id="addressLabel" for="address">Address:</label>
+                    <input type="text" id="address" placeholder="(e.g. 30 Dundas St.)" required><br><br>
+                    
+                    <label id="cityLabel" for="city">City:</label>
+                    <input type="text" id="city" placeholder="(e.g. Toronto)" required><br><br>
+                    
+                    <label id="stateLabel" for="state">State:</label>
+                    <input type="text" id="state" placeholder="(e.g. Ontario)" required><br><br>
+                    
+                </form>
+            </div>
+            
+        </div>
+        
         
     </body>
     

@@ -45,12 +45,25 @@ li a:hover {
     background-color: cornflowerblue;
 }
 
-#mapHeading {
-    color: blue
+li a:active {
+    background-color: cornflowerblue;
 }
-DONT LEAVE YOUR COMPUTER UNLOCKLED!!
+
 body {
     font-family: sans-serif;
     text-align: center;
+}
+
+.division1 {
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+h1 { 
+    color: orangered;
+}
+
+h2 {
+    color: darkgray;
 }
 
