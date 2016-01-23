@@ -1,7 +1,7 @@
 <html>
     <body>
 <?php
-    Test
+    echo "TESTES";
     echo $_GET["name"];
     echo $_GET["phone"];
     echo $_GET["address"];
