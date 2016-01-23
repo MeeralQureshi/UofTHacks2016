@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+    
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    
     <!-- Stylesheet -->
     <link href="styles.css" type="text/css" rel="stylesheet" />
     
@@ -32,11 +36,56 @@
         <div id="mapContainer" class="division1">
             <h1 id="mapHeading">Missing People</h1>
         
+            
+            <h2>Map</h2>
             <!-- Map -->
-            <div id="map">
-                <h2>Map</h2>
+            <div id="map" class="mapContainer">
+                
 
-                <!-- API GOES HERE!!! -->
+                <!--  Map script -->
+                <script type="text/javascript">
+                    
+                    var missingPeople = [
+                        ['Owen Sawyer', 43.6573681, -79.3952284],
+                        ['Wenting Pan', 43.6677274, -79.3951901],
+                        ['Meeral Qureshi', 43.7592067, -79.398188]
+                    ];
+                    
+                    var map;
+                    
+                    function initMap() {
+                      map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 43.717899, lng: -79.6582352},
+                        zoom: 10
+                      });
+                        
+                        var infowindow = new google.maps.InfoWindow();
+
+                        var marker, i;
+
+                        for (i = 0; i < missingPeople.length; i++) {  
+                          marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(missingPeople[i][1], missingPeople[i][2]),
+                            map: map
+                          });
+
+                          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
+                              infowindow.setContent(missingPeople[i][0]);
+                              infowindow.open(map, marker);
+                            }
+                          })(marker, i));
+                        }
+                    }
+                    
+                    
+                    
+                </script>
+
+                <!-- API Key -->
+                <script async defer
+                  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsCm6RND11bnOXGGQn1rGv-yg4U2snilc&callback=initMap">
+                </script>
 
             </div>
 
