@@ -10,6 +10,8 @@
     <!-- Webpage title -->
     <title>Spotter: Home</title>
     
+    <script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
+
     <!-- Header information -->
     <header>
         <a href="index.html" id="home">
@@ -121,32 +123,42 @@
                 
                 <br>
                 
-                <form action="/php/register_spotter.php" method="get">
+                <form method="GET" name="signup" action="/php/register_spotter.php">
                     <!-- Name -->
-                    <label id="nameLabel" for="name">Name:</label>
+                    <label for="name">Name:</label>
                     <input type="text" name="name" placeholder="Enter your name" required><br><br>
                     
                     <!-- Phone Number -->
-                    <label id="phoneLabel" for="phone">Phone number:</label>
+                    <label for="phone">Phone number:</label>
                     <input type="number" name="phone" placeholder="Enter your phone number" required><br><br>
                     
                     <!-- Preferred Location -->
-                    <label id="addressLabel" for="address">Address:</label>
+                    <label  for="address">Address:</label>
                     <input type="text" name="address" placeholder="(e.g. 30 Dundas St.)" required><br><br>
                     
-                    <label id="cityLabel" for="city">City:</label>
+                    <label for="city">City:</label>
                     <input type="text" name="city" placeholder="(e.g. Toronto)" required><br><br>
                     
-                    <label id="stateLabel" for="state">Province:</label>
+                    <label for="state">Province:</label>
                     <input type="text" name="state" placeholder="(e.g. Ontario)" required><br><br>
                     
-                    <input type="submit" value="Submit" id="submitSpot">
+                    <input type="submit" value="Submit">
                 </form>
                 
             </div>
-            
+
+            <script language="JavaScript">
+            // Code for validating the form
+            // Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
+            // for details
+            var frmvalidator  = new Validator("signup");
+            frmvalidator.addValidation("name","req","Please provide your name"); 
+            frmvalidator.addValidation("phone","req","Please provide your phone"); 
+            frmvalidator.addValidation("address","req","Please provide your address"); 
+            frmvalidator.addValidation("city","req","Please provide your city"); 
+            frmvalidator.addValidation("state","req","Please provide your state"); 
+            </script>
         </div>
-        
         
     </body>
     
