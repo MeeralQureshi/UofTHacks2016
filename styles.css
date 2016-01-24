@@ -65,7 +65,7 @@ h2 {
 }
 
 .mapContainer { 
-    width: 700px; 
+    width: 1200px; 
     height: 700px;
     text-align: center;
     float: center;
@@ -76,7 +76,7 @@ h2 {
 #map {
     float: center;
     height:700px; 
-    width:700px; 
+    width:1200px; 
     margin-left: auto; 
     margin-right: auto;
     border-radius: 15px;
