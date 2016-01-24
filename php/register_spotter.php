@@ -108,9 +108,10 @@ foreach($addrp as $value){
     }
 }
 echo $addr;
-echo "<br><br>";
+/*echo "<br><br>";
 $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
 
+    
     $cURL = curl_init();
 
     curl_setopt($cURL, CURLOPT_URL, $url);
@@ -125,13 +126,15 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&regi
 
     curl_close($cURL);
     print_r($obj);
+    */
     echo "<br><br>";
-    
+    $request =file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=".$addr."&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc");
 
-    $decoded = json_decode($obj, true);
+    $json = json_decode($request, true);
     echo "Check: ";
-    echo $decoded['results'][0]['geometry'];
-    echo $decoded['results'][0]['geometry'];
+    echo $json['results'][0]['formatted_address'];
+    //echo $json['results'][0]['geometry'];
+    echo "<br><br>";
     //$long = $decoded['results'][0]['geometry']['location']['lng'];
     //$lat = $decoded['results'][0]['geometry']['location']['lat'];
     
