@@ -113,7 +113,9 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$address.'&r
     curl_close($cURL);
     print_r($obj);
 
-    
+    print_r($obj['results']['location']['lng']);
+    print_r($obj['results']['location']['lng']);
+
     $results = array();
     foreach($stuff['results']['location'] as $chunk){
         $long = $chunk['lng'];
@@ -123,7 +125,8 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$address.'&r
     $tuple = array($long, $lat);
     $results[] = $tuple;
     print_r($results);
-    
+    echo $results[0];
+    echo $results[1];
 
     //$long = $obj['results']['location']['lng'];
     //$lat = $obj['results']['location']['lat'];
