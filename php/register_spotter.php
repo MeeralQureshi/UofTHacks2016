@@ -46,10 +46,9 @@
             "Hey $name, Welcome to Spotter."
         );
         // Display a confirmation message on the screen
-        $link_address = "index.html";
-        echo "Sent message to $name";
+        echo "Sent message to $name.";
         echo "<br><br>";
-        echo "<a href='".$link_address."'>Back to Spotter</a>";
+        echo "<a href='../index.html'>Back to Spotter</a>";
     }
         
         
@@ -65,27 +64,31 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    function convAddr($addr) {
-        $curl = curl_init();
-        // Set some options - we are passing in a useragent too here
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $addr+'&region=ca&key=AIzaSyDsCm6RND11bnOXGGQn1rGv-yg4U2snilc',
-            CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-        ));
-        // Send the request & save response to $resp
-        $resp = curl_exec($curl);
-        // Close request to clear up some resources
-        curl_close($curl);
-        $obj = json_decode($resp);
+
+    $addr = $_POST['address'];
         
-        // https://developers.google.com/maps/documentation/geocoding/intro
-        // Region Basing section
-        $long = $obj['results']['location']['lng'];
-        $lat = $obj['results']['location']['lat'];
+    //function convAddr($addr) {
         
-        return array ($long, $lat);
-    }
+    $curl = curl_init();
+    // Set some options - we are passing in a useragent too here
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $addr+'&region=ca&key=AIzaSyDsCm6RND11bnOXGGQn1rGv-yg4U2snilc',
+        CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+    ));
+    // Send the request & save response to $resp
+    $resp = curl_exec($curl);
+    // Close request to clear up some resources
+    curl_close($curl);
+    $obj = json_decode($resp);
+
+    // https://developers.google.com/maps/documentation/geocoding/intro
+    // Region Basing section
+    $long = $obj['results']['location']['lng'];
+    $lat = $obj['results']['location']['lat'];
+
+    return array ($long, $lat);
+    //}
         
     $sql = 'INSERT INTO Spotter (SID, Longitude, Latitude)
     VALUES ($_GET["phone"], $long, $lat)';
