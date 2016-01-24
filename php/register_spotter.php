@@ -96,7 +96,7 @@
     */
 //---------------------CURL REQUEST LAT/LONG------------------------
 $address = $_GET['address']; 
-$addrp = explode(' ', $address);
+$addrp = explode(" ", $address);
 $addr = '';
 $addrLast = end($addrp);
 foreach($addrp as $value){
