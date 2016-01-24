@@ -129,8 +129,10 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&regi
     
 
     $decoded = json_decode($obj, true);
-    $long = $decoded['results'][0]['location']['lng'];
-    $lat = $decoded['results'][0]['location']['lat'];
+    echo "Check: ";
+    echo $decoded['results'][0]['geometry']['location']['lng'];
+    $long = $decoded['results'][0]['geometry']['location']['lng'];
+    $lat = $decoded['results'][0]['geometry']['location']['lat'];
     
     //$long = $obj['results']['location']['lng'];
     //$lat = $obj['results']['location']['lng'];
