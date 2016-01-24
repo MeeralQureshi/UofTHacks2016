@@ -1,5 +1,5 @@
 <?php
-require_once 'lib/twitteroauth.php';
+require_once 'twitteroauth.php';
  
 define('CONSUMER_KEY', 'XgA2skxeI3KqNkZAKvwIsM6k6');
 define('CONSUMER_SECRET', 'N3g1GntYFpvrX2g3pZQPMeH74gL4DZgfVMe3a6QYPzx34ul0Zv');
