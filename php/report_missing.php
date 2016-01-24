@@ -15,16 +15,22 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    
     $result = json_decode(exec('python tweet_search.py'), true);
     echo $result;
 
-    //$sql = "INSERT INTO Missing (TweetURL, Longtitude, Latitude, TimeCreated)
-    //VALUES ()";
+    foreach ($result as $tweet) {
+                        
+        $sql = "INSERT INTO Missing (TweetURL, Longtitude, Latitude)
+        VALUES ('" . $tweet[0] . "', '" . $tweet[1] . "', '" . $tweet[2] . "')";
+        
+        if ($conn->query($sql) === TRUE) {
+            echo "Missing person reported successfully.";
+        } else {
+            echo "Error reporting missing person: " . $conn->error;
+        }
+    }
 
-
-
-
+    
     $conn->close();
 
 ?>
