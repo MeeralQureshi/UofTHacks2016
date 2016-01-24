@@ -88,8 +88,10 @@
     // Region Basing section
     $long = $obj['results']['location']['lng'];
     $lat = $obj['results']['location']['lat'];
-
-    return array ($long, $lat);
+    
+    echo $long;
+    echo $lat;
+    //return array ($long, $lat);
     //}
         
     $sql = 'INSERT INTO Spotter (SID, Longitude, Latitude)
