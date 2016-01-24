@@ -49,6 +49,7 @@
         echo "Sent message to $name.";
         echo "<br><br>";
         echo "<a href='../index.html'>Back to Spotter</a>";
+        echo "<br><br>";
     }
         
         
@@ -74,15 +75,16 @@
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='+ $addr+'&region=ca&key=AIzaSyDsCm6RND11bnOXGGQn1rGv-yg4U2snilc',
-        CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+        CURLOPT_URL => 'https://maps.googleapis.com/maps/api/geocode/json?address='.$name.'&region=ca&key=AIzaSyDsCm6RND11bnOXGGQn1rGv-yg4U2snilc',
+        CURLOPT_USERAGENT => 'Google API Request'
     ));
     // Send the request & save response to $resp
     $resp = curl_exec($curl);
     // Close request to clear up some resources
     curl_close($curl);
-    $obj = json_decode($resp);
-
+    $obj = json_decode($resp, true);
+    print_r($obj);
+    
     // https://developers.google.com/maps/documentation/geocoding/intro
     // Region Basing section
     $long = $obj['results']['location']['lng'];
@@ -90,6 +92,7 @@
 
     echo $long;
     echo $lat;
+    echo "<br><br>";
     //return array ($long, $lat);
     //}
         
