@@ -1,17 +1,18 @@
 <html>
     <body>
 <?php
-    echo "TESTES";
-    echo $_GET["name"];
-    echo $_GET["phone"];
-    echo $_GET["address"];
-    echo $_GET["city"];
-    echo $_GET["state"];
         
-    $conn = //PLACEHOLDER FOR WEBHOST DB CONNECTION;
-    
-    $sql = "INSERT INTO Spotter (SID, Longitude, Latitude)
-    VALUES ()";
+    $servername = "server36.000webhost.com";
+    $username = "a2117997_FF";
+    $password = "codepanda18";
+    $dbname = "a2117997_SDB";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
         
     function convAddr($addr) {
         $curl = curl_init();
@@ -34,6 +35,16 @@
         
         return [$long, $lat];
     }
+        
+    $sql = "INSERT INTO Spotter (SID, Longitude, Latitude)
+    VALUES ($_GET["phone"], $long, $lat)";
+        
+    if ($conn->query($sql) === TRUE) {
+        echo "Spotter added successfully!";
+    } else {
+        echo "Error adding apotter: " . $conn->error;
+    }
+    
 ?>
     </body>
     
