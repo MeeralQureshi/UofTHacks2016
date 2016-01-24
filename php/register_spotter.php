@@ -124,10 +124,11 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&regi
 
     curl_close($cURL);
     print_r($obj);
+    echo "<br><br>";
 
-    $decoded = json_decode($obj);
-    $long = $decoded->results[0]->location->lng;
-    $long = $decoded->results[0]->location->lat;
+    $decoded = json_decode($obj, true);
+    $long = $decoded['results'][0]['location']['lng'];
+    $lat = $decoded['results'][0]['location']['lat'];
     
     //$long = $obj['results']['location']['lng'];
     //$lat = $obj['results']['location']['lng'];
