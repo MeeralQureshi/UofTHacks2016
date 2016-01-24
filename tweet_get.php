@@ -10,7 +10,7 @@ $settings = array(
     'consumer_secret' => "N3g1GntYFpvrX2g3pZQPMeH74gL4DZgfVMe3a6QYPzx34ul0Zv"
 );
 
-$url = 'https://api.twitter.com/1.1/search/tweets.json'
+$url = 'https://api.twitter.com/1.1/search/tweets.json';
 $getfield = '?q=#SpotMissing';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
