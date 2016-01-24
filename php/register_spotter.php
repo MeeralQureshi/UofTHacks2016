@@ -129,10 +129,13 @@
             "Hey $name, Welcome to Spotter."
         );
         // Display a confirmation message on the screen
+        $link_address = "index.html"
         echo "Sent message to $name";
+        echo "<a href='".$link_address."'>Back to Spotter</a>";
     }
     
 ?>
+        
     </body>
     
 </html>
