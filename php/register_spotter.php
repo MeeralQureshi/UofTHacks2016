@@ -96,11 +96,11 @@
     */
 //---------------------CURL REQUEST LAT/LONG------------------------
 $address = $_GET['address']; 
-$addrp = explode('', $address);
+$addrp = explode(' ', $address);
 $addr = '';
 $addrLast = end($addrp);
 foreach($addrp as $value){
-    if($value == $lastElement){
+    if($value == $addrLast){
         $addr .= $value;
     }
     else{
