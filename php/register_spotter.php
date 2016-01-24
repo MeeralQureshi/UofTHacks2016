@@ -71,7 +71,7 @@
         
     //function convAddr($addr) {
         
-    $curl = curl_init();
+    /*$curl = curl_init();
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
@@ -95,6 +95,31 @@
     echo "<br><br>";
     //return array ($long, $lat);
     //}
+    */
+//---------------------CURL REQUEST LAT/LONG------------------------
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$name.'&region=ca&key=AIzaSyDsCm6RND11bnOXGGQn1rGv-yg4U2snilc';
+
+    $cURL = curl_init();
+
+    curl_setopt($cURL, CURLOPT_URL, $url);
+    curl_setopt($cURL, CURLOPT_HTTPGET, true);
+
+    curl_setopt($cURL, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Accept: application/json'
+    ));
+
+    $obj = curl_exec($cURL);
+
+    curl_close($cURL);
+    print_r($obj);
+
+    $long = $obj['results']['location']['lng'];
+    $lat = $obj['results']['location']['lat'];
+
+    echo $long;
+    echo $lat;
+    echo "<br><br>";
         
     $conn->select_db( $dbname );
     $sql = "INSERT INTO Spotter (SID, Longitude, Latitude)
