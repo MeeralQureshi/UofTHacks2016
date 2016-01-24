@@ -21,12 +21,22 @@
  
     // Step 3: instantiate a new Twilio Rest Client
     $client = new Services_Twilio($AccountSid, $AuthToken);
+
+
+
+    if(empty($_POST['name'])  || 
+       empty($_POST['phone']))
+    {
+        $errors .= "\n Error: all fields are required";
+    }
+
+    $name = $_POST['name']; 
+    $phone = $_POST['phone']; 
  
     // Step 4: make an array of people we know, to send them a message. 
     // Feel free to change/add your own phone number and name here.
     $people = array(
-        "+16475231447" => "Owen test",
-
+        $phone => $name,
     );
  
     // Step 5: Loop over all our friends. $number is a phone number above, and 
