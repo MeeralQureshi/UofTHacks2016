@@ -1,6 +1,7 @@
 #REQ: python 2.x (2.7?)
 #pip install tweepy
 import tweepy
+import json
  
 class StdOutListener(tweepy.StreamListener):
     ''' Handles data received from the stream. '''
@@ -24,6 +25,35 @@ class StdOutListener(tweepy.StreamListener):
         print('Timeout...')
         return True # To continue listening
  
+
+def tweet_parse(text):
+    "name: Owen Sawyer Age: 20 Gender: M Description: best picture: nah #missing #coolestkid #missingmaptest"
+    '''Name: 
+    Age: (in years)
+    Gender: (M/F)
+    Description: (Brief) 
+    Picture: (Optional)
+    
+    return: [name,age,gender,description,picture]
+    '''
+    text = text.lower()
+    name = text.split('age')[0]
+    age = text.split('gender')[0]
+    gender = text.split('description')[0]
+    desc = text.split('picture')[0]
+    pic = text.split('#missing')[0]
+    hashtag = text.find('#missing')
+
+    returnlist = [name.split('name:')[1],
+                  age.replace(name,"").split('age:')[1],
+                  gender.replace(age,"").split('gender:')[1],
+                  desc.replace(age,"").split('description:')[1],
+                  pic.replace(desc,"")[:hashtag].split('picture:')[1]]
+    for i in range(len(returnlist)):
+        returnlist[i] = returnlist[i].strip()
+    return returnlist
+ 
+ 
 if __name__ == '__main__':
     
     consumer_key = 'XgA2skxeI3KqNkZAKvwIsM6k6'
@@ -39,18 +69,26 @@ if __name__ == '__main__':
     
     
     #Query Operators: https://dev.twitter.com/rest/public/search
-    query = '#dog OR #cat -RT' 
-    max_tweets = 10
+    #query = '#dog OR #cat -RT' 
+    query = '#missing -RT'
+    max_tweets = 300
     restrict = tweepy.Cursor(api.search,  
               query,
-              since="2016-01-01",
-              until="2016-01-23", 
+              since="2010-01-01",
+              until="2016-01-24", 
               ).items(max_tweets)
     
     for status in restrict:  
+        if status.geo is not None:
         #if 'RT ' not in status.text.encode('utf8'):
-        print (status.text.encode('utf8'))
-        print ('---')
+            returndict = [status.id, status.geo['coordinates'][0], status.geo['coordinates'][0]]
+            print (returndict)
+            #print(status.entities['urls']['expanded_url'])
+            print ('---')
+        else:
+            pass
+
+
 
 #STATUS object structure:
 #{
@@ -78,3 +116,5 @@ if __name__ == '__main__':
  #'in_reply_to_status_id_str': None, 
  #'place': None
 #}
+
+
