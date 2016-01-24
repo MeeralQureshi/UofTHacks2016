@@ -66,8 +66,6 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
-    $addr = $_GET['address'];
         
     //function convAddr($addr) {
         
@@ -97,7 +95,8 @@
     //}
     */
 //---------------------CURL REQUEST LAT/LONG------------------------
-    $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$name.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
+$addr = $_GET['address'];    
+$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$address.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
 
     $cURL = curl_init();
 
@@ -114,12 +113,24 @@
     curl_close($cURL);
     print_r($obj);
 
-    $long = $obj['results']['location']['lng'];
-    $lat = $obj['results']['location']['lat'];
+    
+    $results = array();
+    foreach($stuff['results']['location'] as $chunk){
+        $long = $chunk['lng'];
+        $lat = $chunk['lat']
+    }
 
-    echo $long;
-    echo $lat;
-    echo "<br><br>";
+    $tuple = array($long, $lat);
+    $results[] = $tuple;
+    print_r($results);
+    
+
+    //$long = $obj['results']['location']['lng'];
+    //$lat = $obj['results']['location']['lat'];
+
+    //echo $long;
+    //echo $lat;
+    //echo "<br><br>";
         
     $conn->select_db( $dbname );
     $sql = "INSERT INTO Spotter (SID, Longitude, Latitude)
