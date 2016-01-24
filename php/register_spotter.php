@@ -98,7 +98,7 @@
 $address = $_GET['address']; 
 $addrp = explode('', $address);
 $addr = '';
-$addrLast = end($addrp)
+$addrLast = end($addrp);
 foreach($addrp as $value){
     if($value == $lastElement){
         $addr .= $value;
@@ -107,6 +107,7 @@ foreach($addrp as $value){
         $addr .= $value . '+';
     }
 }
+echo $addr;
 $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
 
     $cURL = curl_init();
