@@ -1,6 +1,6 @@
 <?php
         
-    $servername = "server36.000webhost.com";
+    $servername = "mysql11.000webhost.com";
     $username = "a2117997_FF";
     $password = "codepanda18";
     $dbname = "a2117997_SDB";
@@ -23,7 +23,7 @@
         TweetURL varchar(255) NOT NULL,
         Longitude float NOT NULL,
         Latitude float NOT NULL,
-        TimeCreated date,
+        TimeCreated int,
         PRIMARY KEY (MID)
     )";
 

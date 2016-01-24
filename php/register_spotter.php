@@ -14,14 +14,14 @@
 
 
 
-    if(empty($_POST['name'])  || 
-       empty($_POST['phone']))
+    if(empty($_GET['name'])  || 
+       empty($_GET['phone']))
     {
         $errors .= "\n Error: all fields are required";
     }
 
-    $name = $_POST['name']; 
-    $phone = $_POST['phone']; 
+    $name = $_GET['name']; 
+    $phone = $_GET['phone']; 
  
     // Step 4: make an array of people we know, to send them a message. 
     // Feel free to change/add your own phone number and name here.
@@ -31,7 +31,7 @@
  
     // Step 5: Loop over all our friends. $number is a phone number above, and 
     // $name is the name next to it
-    foreach ($people as $number => $name) {
+    foreach ($people as $phone => $name) {
  
         $sms = $client->account->messages->sendMessage(
  
@@ -40,7 +40,7 @@
             "289-796-0748", 
  
             // the number we are sending to - Any phone number
-            $number,
+            $phone,
  
             // the sms body
             "Hey $name, Welcome to Spotter."
@@ -53,20 +53,20 @@
         
         
     // ----------------------DATABASE------------------------------------
-    $servername = "server36.000webhost.com";
+    $servername = "mysql11.000webhost.com";
     $username = "a2117997_FF";
     $password = "codepanda18";
     $dbname = "a2117997_SDB";
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($servername, $username, $password); 
     
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $addr = $_POST['address'];
+    $addr = $_GET['address'];
         
     //function convAddr($addr) {
         
@@ -87,15 +87,15 @@
     // Region Basing section
     $long = $obj['results']['location']['lng'];
     $lat = $obj['results']['location']['lat'];
-    
+
     echo $long;
     echo $lat;
     //return array ($long, $lat);
     //}
         
-    $sql = 'INSERT INTO Spotter (SID, Longitude, Latitude)
-    VALUES ($_GET["phone"], $long, $lat)';
-        
+    $conn->select_db( $dbname );
+    $sql = "INSERT INTO Spotter (SID, Longitude, Latitude)
+    VALUES ('" . $phone . "', '" . $long . "', '" . $lat . "')";
     if ($conn->query($sql) === TRUE) {
         echo "Spotter added successfully!";
     } else {
