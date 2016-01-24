@@ -119,7 +119,7 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$address.'&r
     $results = array();
     foreach($stuff['results']['location'] as $chunk){
         $long = $chunk['lng'];
-        $lat = $chunk['lat']
+        $lat = $chunk['lat'];
     }
 
     $tuple = array($long, $lat);
