@@ -95,8 +95,20 @@
     //}
     */
 //---------------------CURL REQUEST LAT/LONG------------------------
-$address = $_GET['address'];    
-$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$address.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
+$address = $_GET['address']; 
+$addrp = explode(" ", $address);
+$addr = '';
+$addrLast = end($addrp);
+foreach($addrp as $value){
+    if($value == $addrLast){
+        $addr .= $value;
+    }
+    else{
+        $addr .= $value . '+';
+    }
+}
+echo $addr;
+$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
 
     $cURL = curl_init();
 
@@ -113,20 +125,19 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$address.'&r
     curl_close($cURL);
     print_r($obj);
 
-    print_r($obj['results']['location']['lng']);
-    print_r($obj['results']['location']['lng']);
-
-    $results = array();
-    foreach($stuff['results']['location'] as $chunk){
-        $long = $chunk['lng'];
-        $lat = $chunk['lat'];
-    };
-
-    $tuple = array($long, $lat);
-    $results[] = $tuple;
-    print_r($results);
-    echo $results[0];
-    echo $results[1];
+    $decoded = json_decode($obj);
+    $long = $decoded->results[0]->location->lng;
+    $long = $decoded->results[0]->location->lat;
+    
+    //$long = $obj['results']['location']['lng'];
+    //$lat = $obj['results']['location']['lng'];
+    //$tuple = array($long, $lat);
+    //$results[] = $tuple;
+    echo $long;
+    echo $lat;
+    //print_r($results);
+    
+    
 
     //$long = $obj['results']['location']['lng'];
     //$lat = $obj['results']['location']['lat'];
