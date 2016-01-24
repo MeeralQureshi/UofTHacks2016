@@ -13,7 +13,7 @@ $settings = array(
 $url = 'https://api.twitter.com/1.1/search/tweets.json';
 $getfield = '?q=#SpotMissing';
 $requestMethod = 'GET';
-$twitter = new TwitterAPIExchange($settings);
+$twitter = new TwitterAPIExchange($settings, CURLOPT_SSL_VERIFYPEER);
 echo $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
              ->performRequest();  
