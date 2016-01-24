@@ -107,7 +107,7 @@
             $addr .= $value . '+';
         }
     }
-    echo $addr;
+    //echo $addr;
 /*echo "<br><br>";
 $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
 
