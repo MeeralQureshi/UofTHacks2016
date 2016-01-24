@@ -8,6 +8,11 @@
     echo $_GET["city"];
     echo $_GET["state"];
         
+    $conn = //PLACEHOLDER FOR WEBHOST DB CONNECTION;
+    
+    $sql = "INSERT INTO Spotter (SID, Longitude, Latitude)
+    VALUES ()";
+        
     function convAddr($addr) {
         $curl = curl_init();
         // Set some options - we are passing in a useragent too here
