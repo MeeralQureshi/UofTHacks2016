@@ -59,8 +59,7 @@
     $dbname = "a2117997_SDB";
 
     // Create connection
-    $connect = @mysql_connect($servername, $username, $password)or die(mysql_error());
-    $db = @mysql_select_db($dbname,$connect)or die(mysql_error());  
+    $conn = new mysqli($servername, $username, $password);
     
     // Check connection
     if ($conn->connect_error) {
