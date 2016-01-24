@@ -97,7 +97,7 @@
     //}
     */
 //---------------------CURL REQUEST LAT/LONG------------------------
-    $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$name.'&region=ca&key=AIzaSyDsCm6RND11bnOXGGQn1rGv-yg4U2snilc';
+    $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$name.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
 
     $cURL = curl_init();
 
