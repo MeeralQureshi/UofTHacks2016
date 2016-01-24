@@ -49,6 +49,7 @@
         echo "Sent message to $name.";
         echo "<br><br>";
         echo "<a href='../index.html'>Back to Spotter</a>";
+        echo "<br><br>";
     }
         
         
@@ -82,7 +83,7 @@
     // Close request to clear up some resources
     curl_close($curl);
     $obj = json_decode($resp, true);
-    echo $obj;
+    print_r($obj);
 
     // https://developers.google.com/maps/documentation/geocoding/intro
     // Region Basing section
@@ -91,6 +92,7 @@
 
     echo $long;
     echo $lat;
+    echo "<br><br>";
     //return array ($long, $lat);
     //}
         
