@@ -77,16 +77,21 @@ if __name__ == '__main__':
               since="2010-01-01",
               until="2016-01-24", 
               ).items(max_tweets)
+
+    masterlist = []
     
     for status in restrict:  
         if status.geo is not None:
         #if 'RT ' not in status.text.encode('utf8'):
-            returndict = [status.id, status.geo['coordinates'][0], status.geo['coordinates'][0]]
-            print (returndict)
+            returndict = [status.id, status.geo['coordinates'][0], status.geo['coordinates'][1]]
+            print returndict
+            masterlist.append(returndict)
             #print(status.entities['urls']['expanded_url'])
-            print ('---')
+            #print ('---')
         else:
             pass
+    
+    print json.dumps(masterlist)
 
 
 
