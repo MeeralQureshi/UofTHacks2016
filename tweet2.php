@@ -9,8 +9,8 @@ define('ACCESS_TOKEN_SECRET', '6WJxt4Yn7UmLjigfYazoiJLbXHcsFNfaOwvYJ7QCQrD3u');
 $toa = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
  
 $query = array(
-  "q" => "#WorldSeries"
-   "result_type" => "recent"
+    "q" => "#SpotMissing",
+    "result_type" => "recent"
 );
  
 $results = $toa->get('search/tweets', $query);
