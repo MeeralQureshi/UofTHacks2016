@@ -95,19 +95,19 @@
     //}
     */
 //---------------------CURL REQUEST LAT/LONG------------------------
-$address = $_GET['address']; 
-$addrp = explode(" ", $address);
-$addr = '';
-$addrLast = end($addrp);
-foreach($addrp as $value){
-    if($value == $addrLast){
-        $addr .= $value;
+    $address = $_GET['address']; 
+    $addrp = explode(" ", $address);
+    $addr = '';
+    $addrLast = end($addrp);
+    foreach($addrp as $value){
+        if($value == $addrLast){
+            $addr .= $value;
+        }
+        else{
+            $addr .= $value . '+';
+        }
     }
-    else{
-        $addr .= $value . '+';
-    }
-}
-echo $addr;
+    echo $addr;
 /*echo "<br><br>";
 $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc';
 
@@ -128,6 +128,7 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&regi
     print_r($obj);
     */
     echo "<br><br>";
+    echo "Check231: ";
     $request =file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=".$addr."&region=ca&key=AIzaSyCjl3obnErO7Pgmk_eEoqfAWzfprMGX6Xc");
 
     $json = json_decode($request, true);
