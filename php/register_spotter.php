@@ -46,8 +46,9 @@
             "Hey $name, Welcome to Spotter."
         );
         // Display a confirmation message on the screen
-        $link_address = "index.html"
-        echo "Testing. Sent message to $name";
+        $link_address = "index.html";
+        echo "Sent message to $name";
+        echo "<br><br>";
         echo "<a href='".$link_address."'>Back to Spotter</a>";
     }
         
@@ -83,11 +84,11 @@
         $long = $obj['results']['location']['lng'];
         $lat = $obj['results']['location']['lat'];
         
-        return [$long, $lat];
+        return array ($long, $lat);
     }
         
-    $sql = "INSERT INTO Spotter (SID, Longitude, Latitude)
-    VALUES ($_GET["phone"], $long, $lat)";
+    $sql = 'INSERT INTO Spotter (SID, Longitude, Latitude)
+    VALUES ($_GET["phone"], $long, $lat)';
         
     if ($conn->query($sql) === TRUE) {
         echo "Spotter added successfully!";
