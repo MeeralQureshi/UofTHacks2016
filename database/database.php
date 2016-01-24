@@ -23,7 +23,7 @@
         TweetURL varchar(255) NOT NULL,
         Longitude float NOT NULL,
         Latitude float NOT NULL,
-        TimeCreated int,
+        TimeCreated date,
         PRIMARY KEY (MID)
     )";
 
