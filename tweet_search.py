@@ -70,7 +70,7 @@ if __name__ == '__main__':
     
     #Query Operators: https://dev.twitter.com/rest/public/search
     #query = '#dog OR #cat -RT' 
-    query = '#missing -RT'
+    query = '#SpotMissing -RT'
     max_tweets = 300
     restrict = tweepy.Cursor(api.search,  
               query,
