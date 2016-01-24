@@ -133,7 +133,7 @@ $url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$addr.'&regi
 
     $json = json_decode($request, true);
     echo "Check: ";
-    echo $json['results'][0]['formatted_address'];
+    echo $json['results'][0]['geometry']['location']['lng'];
     //echo $json['results'][0]['geometry'];
     echo "<br><br>";
     //$long = $decoded['results'][0]['geometry']['location']['lng'];
